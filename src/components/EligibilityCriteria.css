@@ -1,0 +1,230 @@
+/* ═══════════════════════════════
+   ELIGIBILITY SECTION
+═══════════════════════════════ */
+
+.eligibility-section {
+  background: #f8fafc;
+  overflow: hidden;
+  padding: 80px 0 0 0;
+  /* padding top only, bottom is 0 so image hits bottom */
+}
+
+.eligibility-split {
+  display: flex;
+  align-items: flex-end;
+  /* Align bottom so image sits on the floor */
+  gap: 60px;
+}
+
+/* ── Image Side ── */
+.eligibility-image-col {
+  flex: 1;
+  position: relative;
+}
+
+
+
+.eligibility-img-wrap-transparent {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.eligibility-img-desktop {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  display: block;
+  transform: scale(1.15);
+  /* Scale it up so it fills the space better */
+  transform-origin: bottom center;
+}
+
+.eligibility-img-mobile {
+  display: none;
+  /* Hidden on desktop */
+}
+
+.eligibility-floating-card {
+  position: absolute;
+  bottom: 40px;
+  right: -30px;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(12px);
+  padding: 16px 24px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  z-index: 2;
+}
+
+.ec-icon {
+  width: 40px;
+  height: 40px;
+  background: #10b981;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.ec-title {
+  font-weight: 700;
+  color: #0f172a;
+  font-size: 1.1rem;
+}
+
+.ec-sub {
+  color: #64748b;
+  font-size: 0.9rem;
+}
+
+/* ── Text Side ── */
+.eligibility-text-col {
+  flex: 1;
+  padding-bottom: 80px;
+  /* Padding for the text side only to give space below text */
+}
+
+
+
+.eligibility-text-col .sec-title {
+  margin-bottom: 16px;
+  text-align: left;
+}
+
+.eligibility-text-col .sec-sub {
+  text-align: left;
+  margin-bottom: 40px;
+  max-width: 480px;
+}
+
+.eligibility-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 40px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.eligibility-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.el-icon {
+  color: #2563eb;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.el-text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.el-text strong {
+  font-size: 1.1rem;
+  color: #0f172a;
+}
+
+.el-text span {
+  font-size: 0.95rem;
+  color: #475569;
+  line-height: 1.5;
+}
+
+.el-btn {
+  padding: 16px 32px;
+  box-shadow: 0 10px 25px rgba(37, 99, 235, 0.25);
+}
+
+@keyframes fadeSlideInRight {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeSlideInLeft {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* ── Responsive ── */
+@media (max-width: 960px) {
+  .eligibility-split {
+    flex-direction: column;
+    gap: 0;
+    /* Remove gap for overlap */
+  }
+
+  .eligibility-image-col {
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+    /* Image is behind the text card */
+  }
+
+  .eligibility-img-desktop {
+    display: none !important;
+  }
+
+  .eligibility-img-mobile {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-width: 500px;
+    margin: 0 auto;
+    transform: scale(1.05);
+    /* Slight scale to make it pop */
+    transform-origin: bottom center;
+  }
+
+  .eligibility-section {
+    padding-top: 40px;
+    padding-bottom: 20px;
+    /* Add some padding bottom for the new card layout */
+  }
+
+  .eligibility-text-col {
+    background: #ffffff;
+    padding: 40px 24px 60px 24px;
+    border-radius: 24px;
+    margin-top: -200px;
+    /* Pull text up to hide lower half of image */
+    position: relative;
+    z-index: 2;
+    /* Text card sits on top of the image */
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+  }
+
+  .eligibility-floating-card {
+    right: 10px;
+    top: 0%;
+    bottom: auto;
+    transform: scale(0.65);
+    transform-origin: top right;
+    /* Move to the right, higher up, and make it smaller */
+    z-index: 10;
+  }
+
+  .eligibility-text-col .sec-title,
+  .eligibility-text-col .sec-sub {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}

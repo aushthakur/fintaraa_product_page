@@ -1,0 +1,164 @@
+/* ═══════════════════════════════
+   PROMO MODAL (BANNER ONLY)
+═══════════════════════════════ */
+
+.promo-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.8);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  padding: 20px;
+  animation: fadeIn 0.3s ease;
+}
+
+.promo-banner-box {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  border-radius: 16px;
+  overflow: hidden;
+  /* Ensures image and button stay inside rounded corners */
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  animation: modalScaleUp 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  background: transparent;
+  display: flex;
+  /* Removes gap below image */
+}
+
+.promo-banner-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.promo-banner-mobile {
+  display: none;
+}
+
+.promo-banner-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(4px);
+  border: none;
+  border-radius: 50%;
+  color: #0f172a;
+  cursor: pointer;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+  z-index: 10;
+}
+
+.promo-banner-close:hover {
+  background: #ffffff;
+  transform: scale(1.1);
+}
+
+.promo-banner-cta {
+  position: absolute;
+  bottom: 24px;
+  left: 24px;
+  background: #1e40af;
+  /* Dark blue */
+  color: white;
+  padding: 12px 32px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 20px rgba(30, 64, 175, 0.3);
+  z-index: 10;
+  overflow: hidden;
+  /* For the shine effect */
+}
+
+/* ── Diagonal Shine Effect ── */
+.promo-banner-cta::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(to right,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.4) 50%,
+      rgba(255, 255, 255, 0) 100%);
+  transform: skewX(-25deg);
+  animation: shine 2.5s linear infinite;
+}
+
+@keyframes shine {
+  0% {
+    left: -100%;
+  }
+
+  100% {
+    left: 200%;
+  }
+}
+
+.promo-banner-cta:hover {
+  background: #1e3a8a;
+  transform: translateY(-2px);
+  box-shadow: 0 15px 25px rgba(30, 64, 175, 0.4);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes modalScaleUp {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* ── Responsive ── */
+@media (max-width: 600px) {
+  .promo-banner-desktop {
+    display: none;
+  }
+
+  .promo-banner-mobile {
+    display: block;
+  }
+
+  .promo-banner-cta {
+    bottom: 120px;
+    left: 20px;
+    width: calc(100% - 40px);
+    padding: 16px;
+    font-size: 1.15rem;
+    text-align: center;
+  }
+
+  .promo-banner-close {
+    top: 12px;
+    right: 12px;
+    padding: 6px;
+  }
+}

@@ -1,0 +1,227 @@
+/* ═══════════════════════════════
+   PERSONAL LOAN BENTO GRID (IMAGE BASED)
+═══════════════════════════════ */
+
+.pl-why-section {
+  background: #ffffff;
+  padding: 100px 0;
+}
+
+.pl-bento-header {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto 60px auto;
+}
+
+
+
+.pl-sec-title {
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  font-weight: 600;
+  color: #0f172a;
+  letter-spacing: -0.02em;
+  margin-bottom: 16px;
+}
+
+.pl-sec-sub {
+  font-size: 1.1rem;
+  color: #64748b;
+  line-height: 1.6;
+}
+
+/* ── Bento Grid Layout ── */
+.pl-bento-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: minmax(340px, auto);
+  gap: 24px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.pl-bento-card {
+  background: #f8fafc;
+  border-radius: 24px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  border: 1px solid #f1f5f9;
+}
+
+.pl-bento-card:hover {
+  background: #ffffff;
+  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.08);
+  transform: translateY(-4px);
+  border-color: #e2e8f0;
+}
+
+
+
+/* Reveal Delays */
+.reveal-delay-1 { animation-delay: 0.1s; }
+.reveal-delay-2 { animation-delay: 0.2s; }
+.reveal-delay-3 { animation-delay: 0.3s; }
+.reveal-delay-4 { animation-delay: 0.4s; }
+.reveal-delay-5 { animation-delay: 0.5s; }
+
+/* Grid specific spans */
+.pl-bento-large {
+  grid-column: span 2;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: stretch;
+  background: linear-gradient(135deg, #f8fafc 0%, #eff6ff 100%);
+}
+
+.pl-bento-tall {
+  grid-row: span 2;
+  background: linear-gradient(180deg, #f8fafc 0%, #ecfdf5 100%);
+}
+
+.pl-bento-wide {
+  grid-column: span 2;
+  background: linear-gradient(90deg, #f8fafc 0%, #fdf2f8 100%);
+}
+
+/* ── Content Formatting ── */
+.pl-bento-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.pl-bento-card h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 12px;
+  letter-spacing: -0.01em;
+  padding: 0 32px;
+}
+
+.pl-bento-card p {
+  font-size: 0.95rem;
+  color: #475569;
+  line-height: 1.5;
+  margin: 0;
+  padding: 0 32px 32px 32px;
+}
+
+/* ── Images ── */
+.pl-bento-img-wrap {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  margin-bottom: 24px;
+}
+
+.pl-bento-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.pl-bento-card:hover .pl-bento-img {
+  transform: scale(1.05);
+}
+
+/* ── Specific Visuals ── */
+.pl-bento-large .pl-bento-content {
+  max-width: 65%;
+  justify-content: center;
+}
+
+.pl-bento-large .pl-bento-img-wrap {
+  margin-bottom: 24px;
+  border-radius: 0 0 24px 0;
+}
+
+.pl-bento-large h3,
+.pl-bento-large p {
+  padding-right: 0;
+}
+
+.pl-zero-badge {
+  font-size: 6rem;
+  font-weight: 900;
+  color: #2563eb;
+  line-height: 1;
+  letter-spacing: -0.05em;
+  opacity: 0.1;
+  text-align: right;
+}
+
+.pl-zero-text {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #2563eb;
+  text-transform: uppercase;
+  opacity: 0.4;
+  margin-top: -10px;
+  text-align: right;
+}
+
+.pl-bento-visual {
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.pl-bento-wide .pl-bento-img-wrap {
+  height: 160px;
+  margin-bottom: 0;
+}
+
+.pl-bento-text-bottom {
+  padding: 24px 0 0 0;
+}
+
+
+/* ── Mobile Responsive ── */
+@media (max-width: 960px) {
+  .pl-bento-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .pl-bento-tall {
+    grid-column: span 1;
+    grid-row: span 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .pl-bento-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .pl-bento-large,
+  .pl-bento-tall,
+  .pl-bento-wide {
+    grid-column: span 1;
+  }
+  
+  .pl-bento-large {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .pl-bento-large .pl-bento-content {
+    max-width: 100%;
+  }
+  
+  .pl-bento-large h3,
+  .pl-bento-large p {
+    padding-right: 32px;
+  }
+  
+  .pl-bento-visual {
+    width: 100%;
+    align-items: center;
+    padding-top: 0;
+  }
+}

@@ -1,0 +1,22 @@
+.footer { background: var(--c-white); border-top: 1px solid rgba(0,0,0,0.06); padding: 72px 0 0; position: relative; z-index: 2; }
+.footer-grid { display: grid; grid-template-columns: 1.4fr 0.8fr 0.8fr 1.2fr; gap: 36px; padding-bottom: 56px; }
+.footer-logo { display: flex; align-items: center; gap: 8px; margin-bottom: 14px; }
+.f-tagline { font-size: 0.85rem; color: var(--c-text2); line-height: 1.5; margin-bottom: 20px; }
+.f-social { display: flex; gap: 10px; }
+.f-social a { width: 34px; height: 34px; border-radius: 50%; background: var(--c-bg2); color: var(--c-text2); display: flex; align-items: center; justify-content: center; transition: var(--t-fast); }
+.f-social a:hover { background: var(--c-primary); color: #fff; transform: translateY(-2px); }
+.f-col h4 { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.07em; font-weight: 500; color: var(--c-text); margin-bottom: 18px; }
+.f-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.f-col ul a { font-size: 0.875rem; color: var(--c-text2); transition: var(--t-fast); }
+.f-col ul a:hover { color: var(--c-primary); padding-left: 3px; }
+.f-contact-items { display: flex; flex-direction: column; gap: 11px; margin-bottom: 20px; }
+.f-contact-row { display: flex; align-items: flex-start; gap: 9px; font-size: 0.82rem; color: var(--c-text2); }
+.f-contact-row:hover { color: var(--c-primary); }
+.addr { align-items: flex-start; line-height: 1.4; }
+.f-cta { margin-top: 4px; }
+.f-divider { height: 1px; background: rgba(0,0,0,0.05); }
+.f-bottom-row { display: flex; justify-content: space-between; align-items: flex-start; gap: 24px; padding: 20px 0 28px; }
+.f-copy { font-size: 0.78rem; color: var(--c-text3); flex-shrink: 0; }
+.f-disclaimer { font-size: 0.72rem; color: var(--c-text3); text-align: right; max-width: 520px; line-height: 1.4; }
+@media (max-width: 900px) { .footer-grid { grid-template-columns: repeat(2,1fr); } }
+@media (max-width: 560px) { .footer-grid { grid-template-columns: 1fr; } .f-bottom-row { flex-direction: column; } .f-disclaimer { text-align: left; max-width: 100%; } }

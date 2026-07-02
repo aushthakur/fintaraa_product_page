@@ -1,0 +1,77 @@
+.quick-links-wrapper {
+  position: sticky;
+  /* Adjust based on the actual height of the sticky main navbar. 
+     Navbar is usually 68px. */
+  top: 68px; 
+  z-index: 99;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid #e2e8f0;
+  transition: box-shadow 0.3s ease;
+}
+
+.quick-links-wrapper.is-sticky {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.quick-links-nav {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none; /* Firefox */
+}
+
+.quick-links-nav::-webkit-scrollbar {
+  display: none; /* Chrome/Safari */
+}
+
+.quick-links-list {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  gap: 32px;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.quick-link-item {
+  display: inline-block;
+  padding: 16px 0;
+  color: #475569;
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-decoration: none;
+  position: relative;
+  transition: color 0.2s ease;
+}
+
+.quick-link-item:hover {
+  color: var(--c-primary);
+}
+
+.quick-link-item.active {
+  color: var(--c-primary);
+  font-weight: 600;
+}
+
+.quick-link-item.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background-color: var(--c-primary);
+  border-radius: 3px 3px 0 0;
+}
+
+@media (max-width: 768px) {
+  .quick-links-list {
+    gap: 20px;
+  }
+  
+  .quick-link-item {
+    font-size: 0.85rem;
+    padding: 12px 0;
+  }
+}

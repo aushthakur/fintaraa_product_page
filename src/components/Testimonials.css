@@ -1,0 +1,14 @@
+.t-section { background: var(--c-bg2); }
+.t-slider { max-width: 720px; margin: 0 auto; overflow: hidden; }
+.t-track { display: flex; transition: transform 0.55s cubic-bezier(0.16,1,0.3,1); }
+.t-card { min-width: 100%; padding: 40px; border-radius: var(--r-xl); }
+.t-stars { display: flex; gap: 3px; margin-bottom: 20px; }
+.t-text { font-size: 1.15rem; font-style: italic; color: var(--c-text); line-height: 1.65; margin-bottom: 28px; }
+.t-profile { display: flex; align-items: center; gap: 14px; }
+.t-avatar { width: 46px; height: 46px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: var(--font); font-weight: 500; font-size: 0.9rem; }
+.t-name { font-weight: 500; font-size: 0.95rem; }
+.t-role { font-size: 0.78rem; color: var(--c-text3); }
+.t-dots { display: flex; justify-content: center; gap: 8px; margin-top: 28px; }
+.t-dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(0,0,0,0.1); border: none; cursor: pointer; transition: var(--t-fast); }
+.t-dot.active { background: var(--c-primary); transform: scale(1.3); }
+@media (max-width: 600px) { .t-card { padding: 24px 20px; } .t-text { font-size: 1rem; } }

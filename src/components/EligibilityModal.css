@@ -1,0 +1,133 @@
+/* ── Overlay ── */
+.modal-overlay {
+  position: fixed; inset: 0; z-index: 1100;
+  background: rgba(10,12,28,0.55);
+  backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+  display: flex; align-items: center; justify-content: center;
+  padding: 16px;
+  animation: overlayIn 0.3s ease;
+}
+@keyframes overlayIn { from { opacity: 0; } to { opacity: 1; } }
+
+/* ── Box ── */
+.modal-box {
+  width: 100%; max-width: 520px; max-height: 92dvh; overflow-y: auto;
+  border-radius: var(--r-xl); position: relative;
+  animation: boxIn 0.42s cubic-bezier(0.16,1,0.3,1);
+  scrollbar-width: thin;
+}
+@keyframes boxIn { from { opacity: 0; transform: scale(0.93) translateY(24px); } to { opacity: 1; transform: none; } }
+
+.modal-close {
+  position: absolute; top: 16px; right: 16px;
+  background: rgba(0,0,0,0.06); border: none; border-radius: 50%;
+  width: 36px; height: 36px; display: flex; align-items: center; justify-content: center;
+  cursor: pointer; color: var(--c-text2); transition: var(--t-fast); z-index: 2;
+}
+.modal-close:hover { background: rgba(0,0,0,0.12); color: var(--c-text); }
+
+/* ── Header ── */
+.modal-header { padding: 36px 32px 24px; border-bottom: 1px solid rgba(0,0,0,0.06); }
+.modal-icon-wrap {
+  width: 48px; height: 48px; border-radius: 14px;
+  background: linear-gradient(135deg, rgba(37,99,235,0.12), rgba(79,70,229,0.12));
+  display: flex; align-items: center; justify-content: center; margin-bottom: 16px;
+}
+.modal-icon-svg { color: var(--c-primary); }
+.modal-title { font-size: 1.5rem; font-weight: 300; letter-spacing: -0.02em; margin-bottom: 20px; }
+
+/* Steps indicator */
+.modal-steps { display: flex; align-items: center; gap: 0; }
+.step-item {
+  display: flex; align-items: center; gap: 6px; flex: 1;
+}
+.step-item:not(:last-child)::after {
+  content: ''; flex: 1; height: 2px; background: var(--c-bg2);
+  margin: 0 6px; border-radius: 2px; transition: var(--t-med);
+}
+.step-item.done:not(:last-child)::after { background: var(--c-primary); }
+.step-circle {
+  width: 28px; height: 28px; border-radius: 50%; border: 2px solid var(--c-bg2);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.75rem; font-weight: 500; color: var(--c-text3);
+  background: var(--c-white); transition: var(--t-med); flex-shrink: 0;
+}
+.step-item.current .step-circle { border-color: var(--c-primary); color: var(--c-primary); background: rgba(37,99,235,0.08); }
+.step-item.done .step-circle { border-color: var(--c-primary); background: var(--c-primary); color: #fff; }
+.step-label { font-size: 0.72rem; font-weight: 400; color: var(--c-text3); white-space: nowrap; }
+.step-item.current .step-label { color: var(--c-primary); }
+
+/* ── Body ── */
+.modal-body { padding: 28px 32px; }
+.form-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.form-grid-1 { display: flex; flex-direction: column; gap: 18px; }
+
+.modal-field { display: flex; flex-direction: column; gap: 6px; }
+.modal-field label { font-size: 0.82rem; font-weight: 500; color: var(--c-text2); }
+.modal-field input, .modal-field select {
+  width: 100%; padding: 12px 16px; font-family: var(--font); font-size: 0.95rem;
+  color: var(--c-text); background: var(--c-bg2); border: 1.5px solid transparent;
+  border-radius: var(--r-md); outline: none; transition: var(--t-fast);
+  appearance: none; -webkit-appearance: none;
+}
+.modal-field input:focus, .modal-field select:focus {
+  background: var(--c-white); border-color: var(--c-primary);
+  box-shadow: 0 0 0 4px rgba(37,99,235,0.1);
+}
+.modal-field.error input, .modal-field.error select { border-color: var(--c-danger); box-shadow: 0 0 0 4px rgba(239,68,68,0.08); }
+.field-err { font-size: 0.75rem; color: var(--c-danger); }
+
+/* Consent */
+.consent-row { display: flex; align-items: flex-start; gap: 10px; }
+.consent-row input[type=checkbox] { margin-top: 3px; width: 17px; height: 17px; flex-shrink: 0; accent-color: var(--c-primary); cursor: pointer; }
+.consent-row label { font-size: 0.82rem; color: var(--c-text2); line-height: 1.4; cursor: pointer; }
+.consent-row.error label { color: var(--c-danger); }
+.field-err.full { margin-top: 4px; display: block; }
+
+/* ── Footer ── */
+.modal-footer {
+  padding: 18px 32px 28px; display: flex; align-items: center;
+  border-top: 1px solid rgba(0,0,0,0.05);
+}
+.btn-loading { opacity: 0.78; cursor: not-allowed; }
+.spin-icon { animation: spin 0.8s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ── Offer screen ── */
+.offer-screen { text-align: center; padding: 8px 0; animation: fadeUp 0.5s cubic-bezier(0.16,1,0.3,1); }
+@keyframes fadeUp { from { opacity:0; transform: translateY(16px); } to { opacity:1; transform:none; } }
+
+.offer-check { width: 72px; height: 72px; margin: 0 auto 20px; }
+.check-anim { width: 100%; height: 100%; }
+.check-circle { stroke-dasharray: 160; stroke-dashoffset: 160; animation: drawC 0.7s 0.1s forwards ease; }
+.check-path { stroke-dasharray: 60; stroke-dashoffset: 60; animation: drawP 0.5s 0.65s forwards cubic-bezier(0.65,0,0.45,1); }
+@keyframes drawC { to { stroke-dashoffset: 0; } }
+@keyframes drawP { to { stroke-dashoffset: 0; } }
+
+.offer-greeting { font-size: 1rem; color: var(--c-text2); margin-bottom: 6px; }
+.offer-amount {
+  font-family: var(--font); font-size: 3rem; font-weight: 300;
+  background: linear-gradient(135deg, var(--c-primary), var(--c-secondary));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  letter-spacing: -0.03em; line-height: 1; margin-bottom: 4px;
+}
+.offer-label { font-size: 0.8rem; color: var(--c-text3); margin-bottom: 24px; }
+.offer-details {
+  background: var(--c-bg2); border-radius: var(--r-lg);
+  padding: 16px 20px; margin-bottom: 18px; text-align: left;
+  display: flex; flex-direction: column; gap: 12px;
+}
+.od-row { display: flex; justify-content: space-between; font-size: 0.9rem; }
+.od-row span { color: var(--c-text2); }
+.od-row strong { color: var(--c-text); }
+.offer-trust {
+  display: flex; align-items: center; gap: 7px; justify-content: center;
+  font-size: 0.78rem; color: var(--c-text3); margin-bottom: 24px;
+}
+.offer-trust svg { color: var(--c-success); flex-shrink: 0; }
+
+@media (max-width: 520px) {
+  .modal-header, .modal-body, .modal-footer { padding-left: 20px; padding-right: 20px; }
+  .form-grid-2 { grid-template-columns: 1fr; }
+  .offer-amount { font-size: 2.3rem; }
+}

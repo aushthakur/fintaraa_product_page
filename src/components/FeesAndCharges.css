@@ -1,0 +1,132 @@
+/* ═══════════════════════════════
+   FEES & CHARGES (SIMPLE WRITE-UP)
+═══════════════════════════════ */
+
+.fees-simple-section {
+  padding: 100px 0;
+  background: #ffffff;
+}
+
+.fees-simple-header {
+  max-width: 800px;
+  margin-bottom: 60px;
+}
+
+.fees-simple-header .sec-title {
+  font-size: clamp(2rem, 4vw, 3rem);
+  color: #0f172a;
+  margin-bottom: 16px;
+}
+
+.fees-simple-header .sec-sub {
+  font-size: 1.15rem;
+  color: #475569;
+  line-height: 1.6;
+}
+
+/* ── Simple List ── */
+.fees-simple-list {
+  max-width: 900px;
+  border-top: 2px solid #e2e8f0;
+}
+
+.fees-simple-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 32px 0;
+  border-bottom: 1px solid #e2e8f0;
+  transition: background-color 0.3s ease;
+}
+
+.fees-simple-row:hover {
+  background-color: #f8fafc;
+  /* Add slight padding on hover for a subtle highlight effect */
+  padding-left: 16px;
+  padding-right: 16px;
+  margin-left: -16px;
+  margin-right: -16px;
+  border-radius: 12px;
+  border-bottom-color: transparent;
+}
+
+.fees-simple-left {
+  flex: 1;
+  padding-right: 40px;
+}
+
+.fees-simple-label {
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: #0f172a;
+  margin-bottom: 8px;
+}
+
+.fees-simple-desc {
+  font-size: 0.95rem;
+  color: #64748b;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.fees-simple-right {
+  flex: 0 0 auto;
+  text-align: right;
+}
+
+.fees-simple-value {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #1e40af; /* Primary dark blue */
+  letter-spacing: -0.01em;
+}
+
+/* ── Footer ── */
+.fees-simple-footer {
+  max-width: 900px;
+  margin-top: 40px;
+  color: #64748b;
+  font-size: 0.9rem;
+}
+
+.fees-simple-footer a {
+  color: #2563eb;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.fees-simple-footer a:hover {
+  text-decoration: underline;
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .fees-simple-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 24px 0;
+  }
+  
+  .fees-simple-left {
+    padding-right: 0;
+  }
+  
+  .fees-simple-right {
+    text-align: left;
+  }
+  
+  .fees-simple-value {
+    font-size: 1.3rem;
+  }
+  
+  .fees-simple-row:hover {
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: 0;
+    margin-right: 0;
+    border-radius: 0;
+    border-bottom-color: #e2e8f0;
+    background-color: transparent;
+  }
+}
